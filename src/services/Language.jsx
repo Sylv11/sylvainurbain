@@ -1,27 +1,27 @@
 export default class Language {
-   
+
     static setLanguage = () => {
-        const availableLanguages = ['fr','en']
+        const availableLanguages = ['fr', 'en']
         let chosenLanguage
 
-        if(!localStorage.getItem('lang')) {
-            localStorage.setItem('lang','fr')
+        if (!localStorage.getItem('lang')) {
+            localStorage.setItem('lang', 'fr')
             chosenLanguage = require('../assets/languages/fr')
-        }else {
+        } else {
             const localStoredLanguage = localStorage.getItem('lang')
 
-            if(availableLanguages.includes(localStoredLanguage)) {
+            if (availableLanguages.includes(localStoredLanguage)) {
                 chosenLanguage = require(`../assets/languages/${localStoredLanguage}`)
-            }else {
+            } else {
                 chosenLanguage = require('../assets/languages/fr')
             }
         }
         return chosenLanguage
     }
 
-    static getText = (key) => {
+    static getText = key => {
         const language = Language.setLanguage().default
         return language[key]
     }
-    
+
 }

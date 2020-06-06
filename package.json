@@ -1,11 +1,14 @@
 {
-  "name": "urbainsylvain",
-  "version": "0.1.0",
-  "private": true,
+  "name": "sylvainurbain",
+  "version": "0.0.1",
+  "description": "Sylvain Urbain's personal website",
+  "author": "Sylvain Urbain",
   "dependencies": {
-    "react": "^16.6.3",
+    "i18next": "^17.3.1",
+    "react": "^16.13.1",
     "react-anchor-link-smooth-scroll": "^1.0.11",
-    "react-dom": "^16.6.3",
+    "react-dom": "^16.13.1",
+    "react-i18next": "^10.13.2",
     "react-reveal": "^1.2.2",
     "react-scripts": "2.1.1"
   },
