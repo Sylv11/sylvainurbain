@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { useTranslation } from 'react-i18next';
+import styled from 'styled-components'
 
-import './assets/css/index.css'
 import defaultAvatar from './assets/img/avatar.svg'
 import avatarSmile from './assets/img/avatar-smile.svg'
 import { useSpeechBubbleText } from './hooks'
@@ -9,6 +9,21 @@ import { LangChooser } from './components/LangChooser';
 import { Anchor } from './components/Anchor';
 import { SpeakingAvatar } from './components/SpeakingAvatar';
 import { Biography } from './components/Biography';
+
+const SubContainer = styled.div`
+  height: 100vh;
+  max-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+const SubContainerTitle = styled.h1`
+    font-weight: lighter;
+    font-size: 60px;
+    margin: 0;
+    color: #FFF;
+    user-select: none;
+`
 
 const Home = () => {
     const [avatar, setAvatar] = useState(defaultAvatar)
@@ -29,10 +44,10 @@ const Home = () => {
     return (
         <div id='main-container'>
             <LangChooser languages={['FR', 'EN']} setLanguage={setLanguage} />
-            <div className='subcontainer start'>
-                <h1>
+            <SubContainer>
+                <SubContainerTitle>
                     {t('hello')}
-                </h1>
+                </SubContainerTitle>
                 <SpeakingAvatar 
                     avatar={avatar}
                     handleMouseEnter={handleMouseEnter}
@@ -42,10 +57,10 @@ const Home = () => {
                     t={t}
                 />
                 <Anchor />
-            </div>
-            <div className='subcontainer middle'>
+            </SubContainer>
+            <SubContainer>
                 <Biography biographyPartRef={biographyPartRef} t={t}/>
-            </div>
+            </SubContainer>
         </div>
     )
 }

@@ -1,20 +1,84 @@
 import React from 'react'
-import Fade from 'react-reveal/Fade'
+import styled from 'styled-components'
+
+import biographyImage from '../assets/img/biography.jpg'
+
+const BiographyContainer = styled.div`
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  white-space: pre-line;
+  height: 100%;
+  width: 680px;
+  color: #000;
+  padding: 10px;
+`
+
+const BiographyImage = styled.div`
+  flex: 1;
+  background-image: url(${biographyImage});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 -100px;
+  height: calc(100% - 100px);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  box-shadow: -13px 45px 71px -14px rgba(0,0,0,0.75);
+  z-index: 5;
+  transition: all 0.6s ease-in-out;
+  border-radius: 5px;
+  overflow: hidden;
+
+  &:hover, &:focus {
+    transform: scale(1.05);
+  }
+`
+
+const BiographyText = styled.div`
+  height: 80%;
+  flex: 1;
+  background-color: #FFF;
+  padding: 30px;
+  box-sizing: border-box;
+  box-shadow: 16px 45px 74px -10px rgba(0,0,0,0.75);
+  text-align: justify;
+  overflow-y: scroll;
+  border-radius: 0 5px 5px 0;
+`
+
+const BiographyTitle = styled.h2`
+  color: #000;
+  font-weight: 900;
+  font-size: 33px;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  margin: 0;
+  user-select: none;
+`
+
+const EndDelimiter = styled.hr`
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+`
 
 export const Biography = ({
   biographyPartRef,
   t
 }) => {
   return (
-    <div id='biography' ref={biographyPartRef}>
-        <div id='biography-image' style={{overflow: 'hidden'}}></div>
-        <Fade left delay={500}>
-            <div id='biography-text'>
-                <h2>{t('biography.title')}</h2>
-                <p>{t('biography.text')}</p>
-                <hr/>
-            </div>
-        </Fade>
-    </div>
+    <BiographyContainer id='biography' ref={biographyPartRef}>
+        <BiographyImage />
+        <BiographyText>
+            <BiographyTitle>
+              {t('biography.title')}
+            </BiographyTitle>
+            <p>{t('biography.text')}</p>
+            <EndDelimiter />
+        </BiographyText>
+    </BiographyContainer>
   )
 }

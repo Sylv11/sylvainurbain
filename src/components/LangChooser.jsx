@@ -1,12 +1,30 @@
 import React from 'react'
-import Fade from 'react-reveal/Fade'
+import styled from 'styled-components'
+
+const LangContainer = styled.div`
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 55px;
+`
+
+const LangItem = styled.span`
+  padding-top: 15px;
+  margin-right: 15px;
+  color: #FFF;
+  transition: 0.3s;
+
+  &:hover, &:focus {
+    cursor: pointer;
+    margin-top: 5px;
+  }
+`
 
 export const LangChooser = ({languages, setLanguage}) => {
   return (
-    <Fade top delay={1500}>
-      <div className='lang-container'>
-        {languages.map(language => <span onClick={() => setLanguage(language.toLowerCase())}>{language}</span>)}
-      </div>
-    </Fade>
+    <LangContainer>
+      {languages.map((language, index) => <LangItem onClick={() => setLanguage(language.toLowerCase())} key={index}>{language}</LangItem>)}
+    </LangContainer>
   )
 }

@@ -1,5 +1,33 @@
 import React from 'react'
-import Fade from 'react-reveal/Fade'
+import styled from 'styled-components'
+
+const SpeechBubble = styled.div`
+  position: fixed;
+  bottom: 60px;
+  right: 0;
+  background: #FFF;
+  width: 350px;
+  height: 200px;
+  clip-path: polygon(12% 12%, 70% 10%, 68% 45%, 44% 44%, 48% 61%, 30% 44%, 7% 45%);
+  white-space: pre-line;
+`
+
+const SpeechBubbleText = styled.p`
+  color: #000;
+  display: inline-block;
+  font-size: 19px;
+  margin-left: 45px;
+  margin-top: 35px;
+`
+
+const Avatar = styled.img`
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+`
 
 export const SpeakingAvatar = ({ 
   avatar,
@@ -9,12 +37,14 @@ export const SpeakingAvatar = ({
   speechBubbleText,
   t }) => {
   return (
-    <Fade right delay={1000}>
-        <img src={avatar} alt='avatar' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>
-        <div className='speech-bubble'>
-            <p id='speech-bubble-text' ref={speechBubbleRef}>{t(`${speechBubbleText}`)}
-            </p>
-        </div>
-    </Fade>
+    <>
+      <Avatar src={avatar} alt='avatar' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>
+      <SpeechBubble>
+          <SpeechBubbleText ref={speechBubbleRef}>
+            {t(`${speechBubbleText}`)}
+          </SpeechBubbleText>
+      </SpeechBubble>
+    </>
+ 
   )
 }
