@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { RefObject } from 'react'
 import styled from 'styled-components'
+import { UseTranslationResponse, useTranslation } from 'react-i18next'
 
 const SpeechBubble = styled.div`
   position: fixed;
@@ -29,13 +30,23 @@ const Avatar = styled.img`
   right: 0;
 `
 
+interface IProps {
+  avatar: string,
+  handleMouseEnter: () => void,
+  handleMouseLeave: () => void,
+  speechBubbleRef: RefObject<HTMLParagraphElement>,
+  speechBubbleText: string,
+}
+
 export const SpeakingAvatar = ({ 
   avatar,
   handleMouseEnter,
   handleMouseLeave, 
   speechBubbleRef, 
   speechBubbleText,
-  t }) => {
+}: IProps): JSX.Element => {
+  const { t }: UseTranslationResponse = useTranslation()
+
   return (
     <>
       <Avatar src={avatar} alt='avatar' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>

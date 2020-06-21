@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { RefObject } from 'react'
 import styled from 'styled-components'
+import { UseTranslationResponse, useTranslation } from 'react-i18next'
 
 import biographyImage from '../assets/img/biography.jpg'
 
@@ -65,10 +66,15 @@ const EndDelimiter = styled.hr`
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 `
 
+interface IProps {
+  biographyPartRef: RefObject<HTMLDivElement>,
+}
+
 export const Biography = ({
   biographyPartRef,
-  t
-}) => {
+}: IProps): JSX.Element => {
+  const { t }: UseTranslationResponse = useTranslation()
+
   return (
     <BiographyContainer id='biography' ref={biographyPartRef}>
         <BiographyImage />

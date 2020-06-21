@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react'
-import { useTranslation } from 'react-i18next';
+import React, { useState, useRef, RefObject } from 'react'
+import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import styled from 'styled-components'
 
 import defaultAvatar from './assets/img/avatar.svg'
@@ -25,21 +25,21 @@ const SubContainerTitle = styled.h1`
     user-select: none;
 `
 
-const Home = () => {
-    const [avatar, setAvatar] = useState(defaultAvatar)
-    const { t, i18n } = useTranslation()
-    const biographyPartRef = useRef(null)
-    const speechBubbleRef = useRef(null)
-    const speechBubbleText = useSpeechBubbleText('welcome', biographyPartRef)
+const Home = (): JSX.Element => {
+    const [avatar, setAvatar] = useState<string>(defaultAvatar)
+    const { t, i18n }: UseTranslationResponse = useTranslation()
+    const biographyPartRef: RefObject<HTMLDivElement> = useRef(null)
+    const speechBubbleRef: RefObject<HTMLParagraphElement> = useRef(null)
+    const speechBubbleText: string = useSpeechBubbleText('welcome', biographyPartRef)
 
-    const setLanguage = async (language) => {
+    const setLanguage = async (language: string): Promise<void> => {
         localStorage.setItem('lang', language)
         await i18n.changeLanguage(language)
     }
 
-    const handleMouseEnter = () => setAvatar(avatarSmile)
+    const handleMouseEnter = (): void => setAvatar(avatarSmile)
 
-    const handleMouseLeave = () => setAvatar(defaultAvatar)
+    const handleMouseLeave = (): void => setAvatar(defaultAvatar)
 
     return (
         <div id='main-container'>
@@ -54,12 +54,11 @@ const Home = () => {
                     handleMouseLeave={handleMouseLeave}
                     speechBubbleRef={speechBubbleRef}
                     speechBubbleText={speechBubbleText}
-                    t={t}
                 />
                 <Anchor />
             </SubContainer>
             <SubContainer>
-                <Biography biographyPartRef={biographyPartRef} t={t}/>
+                <Biography biographyPartRef={biographyPartRef} />
             </SubContainer>
         </div>
     )

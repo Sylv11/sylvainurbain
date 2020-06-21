@@ -1,4 +1,5 @@
 import React from 'react'
+// @ts-ignore
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import styled, {keyframes} from 'styled-components'
 
@@ -74,7 +75,7 @@ const Chevron = styled.div`
     }
 `
 
-export const Anchor = () => {
+export const Anchor = (): JSX.Element => {
     return (
         <AnchorLinkContainer>
             <ChevronContainer href="#biography">
