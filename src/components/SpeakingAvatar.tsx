@@ -31,11 +31,11 @@ const Avatar = styled.img`
 `
 
 interface IProps {
-  avatar: string,
-  handleMouseEnter: () => void,
-  handleMouseLeave: () => void,
-  speechBubbleRef: RefObject<HTMLParagraphElement>,
-  speechBubbleText: string,
+  avatar: string;
+  handleMouseEnter: () => void;
+  handleMouseLeave: () => void;
+  speechBubbleRef: RefObject<HTMLParagraphElement>;
+  speechBubbleText: string;
 }
 
 export const SpeakingAvatar = ({ 

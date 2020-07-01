@@ -13,13 +13,17 @@ about me.
 
 ## How to run tests?
 
-...
+The tests are made with [Cypress](https://www.cypress.io).
+
+Run the following command to run the tests: `npm run test`
 
 ## License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
 ## TODO
+Cypress tests
 Theming
 Biography text
 Responsive
+Bug image avatar

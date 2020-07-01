@@ -1,16 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import { createGlobalStyle } from 'styled-components'
 
-import Home from './Home';
+import Home from './Home'
 import backgroundImage from './assets/img/bg.png'
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './serviceWorker'
 import en from './assets/languages/en.json'
 import fr from './assets/languages/fr.json'
+import evolveRegular from './assets/fonts/evolve_thin_evo.otf'
 
 const GlobalStyle = createGlobalStyle`
+    @font-face {
+        font-family: 'evolve';
+        src: url(${evolveRegular}) format('opentype');
+    }
+
     html, body {
         font-family: 'Muli', sans-serif;
         font-weight: lighter;

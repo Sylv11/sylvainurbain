@@ -36,8 +36,8 @@ const LangItem = styled.span`
 `
 
 interface IProps {
-  languages: string[],
-  setLanguage:  (language: string) => Promise<void>,
+  languages: string[];
+  setLanguage:  (language: string) => Promise<void>;
 }
 
 export const LangChooser = ({ 

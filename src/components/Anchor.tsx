@@ -21,19 +21,19 @@ const ChevronContainer = styled(AnchorLink)`
 `
 const moveChevron = keyframes`
     25% {
-      opacity: 1;
+        opacity: 1;
     }
     33.3% {
         opacity: 1;
         transform: translateY(calc(0.6rem * 3.8));
     }
     66.6% {
-      opacity: 1;
-      transform: translateY(calc(0.6rem * 5.2));
+        opacity: 1;
+        transform: translateY(calc(0.6rem * 5.2));
     }
     100% {
-      opacity: 0;
-      transform: translateY(calc(0.6rem * 8)) scale(0.5);
+        opacity: 0;
+        transform: translateY(calc(0.6rem * 8)) scale(0.5);
     }
 `
 

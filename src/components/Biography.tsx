@@ -67,7 +67,7 @@ const EndDelimiter = styled.hr`
 `
 
 interface IProps {
-  biographyPartRef: RefObject<HTMLDivElement>,
+  biographyPartRef: RefObject<HTMLDivElement>;
 }
 
 export const Biography = ({
