@@ -24,6 +24,12 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 ## TODO
 Cypress tests
 Theming
-Biography text
 Responsive
 Bug image avatar
+Re-create background
+init redux toolkit
+put language and theme in redux
+create dark theme
+Remove useless img
+Living bubbles creation simplification
+Styled components props simplification

@@ -2,19 +2,27 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
 
 import Home from './Home'
-import backgroundImage from './assets/img/bg.png'
 import * as serviceWorker from './serviceWorker'
 import en from './assets/languages/en.json'
 import fr from './assets/languages/fr.json'
 import evolveRegular from './assets/fonts/evolve_thin_evo.otf'
+import kiona from './assets/fonts/kiona.ttf'
+import { lightTheme } from './constants/themes'
+import { darkTheme } from './constants/themes'
+import { IThemeProviderProps } from './interfaces'
 
 const GlobalStyle = createGlobalStyle`
     @font-face {
         font-family: 'evolve';
         src: url(${evolveRegular}) format('opentype');
+    }
+
+    @font-face {
+        font-family: 'kiona';
+        src: url(${kiona}) format('truetype');
     }
 
     html, body {
@@ -24,10 +32,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         width: 100%;
         height: 100%;
-        background: url(${backgroundImage});  
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-color: #280E3E;
+        background: ${({ theme }: IThemeProviderProps): string => theme?.colors?.background ?? '#280E3E'};
         scroll-behavior: smooth;
     }
 
@@ -62,10 +67,10 @@ i18n
     })
 
 ReactDOM.render(
-        <>
+        <ThemeProvider theme={darkTheme}>
             <GlobalStyle />
             <Home />
-        </>, 
+        </ThemeProvider>, 
         document.getElementById('root')
     );
 

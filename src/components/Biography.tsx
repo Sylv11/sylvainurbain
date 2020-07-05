@@ -58,12 +58,14 @@ const BiographyTitle = styled.h2`
   text-transform: uppercase;
   margin: 0;
   user-select: none;
+  font-family: 'kiona';
+  font-weight: light;
 `
 
 const EndDelimiter = styled.hr`
   border: 0;
   height: 1px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 `
 
 interface IProps {
@@ -82,8 +84,8 @@ export const Biography = ({
             <BiographyTitle>
               {t('biography.title')}
             </BiographyTitle>
-            <p>{t('biography.text')}</p>
             <EndDelimiter />
+            <p>{t('biography.text')}</p>
         </BiographyText>
     </BiographyContainer>
   )

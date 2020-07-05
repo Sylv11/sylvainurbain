@@ -28,6 +28,7 @@ const Avatar = styled.img`
   position: fixed;
   bottom: 0;
   right: 0;
+  user-select: none;
 `
 
 interface IProps {
