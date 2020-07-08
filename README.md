@@ -26,10 +26,13 @@ Cypress tests
 Theming
 Responsive
 Bug image avatar
-Re-create background
 init redux toolkit
 put language and theme in redux
 create dark theme
 Remove useless img
-Living bubbles creation simplification
-Styled components props simplification
+React Helmet
+404 page
+split Home components
+try without neumorphism button -> remove container
+move sun and moon
+simplify css Home

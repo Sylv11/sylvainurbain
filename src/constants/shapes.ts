@@ -1,8 +1,8 @@
 import blob from '../assets/img/blob.svg'
 import blob2 from '../assets/img/blob2.svg'
-import { ILivingShapeProps } from '../interfaces'
+import { IShapeProps } from '../interfaces'
 
-export const livingBubblesPropsFirstSubcontainer: ILivingShapeProps[] = [{
+export const bubblesFirstSubcontainer: IShapeProps[] = [{
   size: 190,
   position: {
       top: '200',
@@ -64,7 +64,7 @@ export const livingBubblesPropsFirstSubcontainer: ILivingShapeProps[] = [{
   },
 }]
 
-export const livingBubblesPropsSecondSubcontainer: ILivingShapeProps[] = [{
+export const bubblesSecondSubcontainer: IShapeProps[] = [{
   size: 200,
   position: {
       bottom: '10',
@@ -74,7 +74,7 @@ export const livingBubblesPropsSecondSubcontainer: ILivingShapeProps[] = [{
   animated: true,
 }]
 
-export const livingBlobProps: ILivingShapeProps[] = [{
+export const blobsProps: IShapeProps[] = [{
   size: 250,
   position: {
       top: '210',
@@ -94,4 +94,54 @@ export const livingBlobProps: ILivingShapeProps[] = [{
   animated: true,
   src: blob2,
   alt: 'blob2',
+}]
+
+export const craters: IShapeProps[] = [{
+  size: 5,
+  position: {
+    top: '25',
+    left: '25'
+  }
+}, {
+  size: 12,
+  position: {
+    bottom: '10',
+    right: '5'
+  }
+}, {
+  size: 10,
+  position: {
+    top: '18',
+    left: '2'
+  }
+}, {
+  size: 6,
+  position: {
+    bottom: '32',
+    left: '16'
+  }
+}, {
+  size: 2,
+  position: {
+    bottom: '30',
+    left: '28'
+  }
+}, {
+  size: 2,
+  position: {
+    bottom: '5',
+    left: '30'
+  }
+}, {
+  size: 3,
+  position: {
+    top: '33',
+    left: '9'
+  }
+}, {
+  size: 3,
+  position: {
+    top: '15',
+    left: '21'
+  }
 }]

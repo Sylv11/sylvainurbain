@@ -27,7 +27,7 @@ const BiographyImage = styled.div`
   padding-top: 15px;
   padding-bottom: 15px;
   box-shadow: -13px 45px 71px -14px rgba(0,0,0,0.75);
-  z-index: 5;
+  z-index: 3;
   transition: all 0.6s ease-in-out;
   border-radius: 5px;
   overflow: hidden;
