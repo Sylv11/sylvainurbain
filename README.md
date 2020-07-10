@@ -32,7 +32,6 @@ create dark theme
 Remove useless img
 React Helmet
 404 page
-split Home components
-try without neumorphism button -> remove container
 move sun and moon
 simplify css Home
+shadow biography

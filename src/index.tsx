@@ -13,6 +13,7 @@ import kiona from './assets/fonts/kiona.ttf'
 import { lightTheme } from './constants/themes'
 import { darkTheme } from './constants/themes'
 import { IThemeProviderProps } from './interfaces'
+import { purple } from './constants/globals'
 
 const GlobalStyle = createGlobalStyle`
     @font-face {
@@ -32,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         width: 100%;
         height: 100%;
-        background: ${({ theme }: IThemeProviderProps): string => theme?.colors?.background ?? '#280E3E'};
+        background: ${({ theme }: IThemeProviderProps): string => theme?.colors?.background ?? purple};
         scroll-behavior: smooth;
     }
 

@@ -1,5 +1,7 @@
-import blob from '../assets/img/blob.svg'
-import blob2 from '../assets/img/blob2.svg'
+import darkBlob from '../assets/img/blob.svg'
+import darkBlob2 from '../assets/img/blob2.svg'
+import lightBlob from '../assets/img/light_blob.svg'
+import lightBlob2 from '../assets/img/light_blob2.svg'
 import { IShapeProps } from '../interfaces'
 
 export const bubblesFirstSubcontainer: IShapeProps[] = [{
@@ -74,7 +76,7 @@ export const bubblesSecondSubcontainer: IShapeProps[] = [{
   animated: true,
 }]
 
-export const blobsProps: IShapeProps[] = [{
+export const darkBlobsProps: IShapeProps[] = [{
   size: 250,
   position: {
       top: '210',
@@ -82,8 +84,8 @@ export const blobsProps: IShapeProps[] = [{
   },
   speed: 5,
   animated: true,
-  src: blob,
-  alt: 'blob',
+  src: darkBlob,
+  alt: 'darkBlob',
 }, {
   size: 250,
   position: {
@@ -92,8 +94,30 @@ export const blobsProps: IShapeProps[] = [{
   },
   speed: 7,
   animated: true,
-  src: blob2,
-  alt: 'blob2',
+  src: darkBlob2,
+  alt: 'darkBlob2',
+}]
+
+export const lightBlobsProps: IShapeProps[] = [{
+  size: 250,
+  position: {
+      top: '210',
+      left: '40',
+  },
+  speed: 5,
+  animated: true,
+  src: lightBlob,
+  alt: 'lightBlob',
+}, {
+  size: 250,
+  position: {
+      top: '50',
+      right: '40',
+  },
+  speed: 7,
+  animated: true,
+  src: lightBlob2,
+  alt: 'lightBlob2',
 }]
 
 export const craters: IShapeProps[] = [{
@@ -143,5 +167,11 @@ export const craters: IShapeProps[] = [{
   position: {
     top: '15',
     left: '21'
+  }
+}, {
+  size: 5,
+  position: {
+    top: '8',
+    left: '5'
   }
 }]

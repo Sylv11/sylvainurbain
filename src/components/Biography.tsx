@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { UseTranslationResponse, useTranslation } from 'react-i18next'
 
 import biographyImage from '../assets/img/biography.jpg'
+import { white, dark } from '../constants/globals'
 
 const BiographyContainer = styled.div`
   margin-top: 50px;
@@ -13,8 +14,9 @@ const BiographyContainer = styled.div`
   white-space: pre-line;
   height: 100%;
   width: 680px;
-  color: #000;
+  color: ${dark};
   padding: 10px;
+  z-index: 3;
 `
 
 const BiographyImage = styled.div`
@@ -22,7 +24,7 @@ const BiographyImage = styled.div`
   background-image: url(${biographyImage});
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 0 -100px;
+  background-position: 0 -92px;
   height: calc(100% - 100px);
   padding-top: 15px;
   padding-bottom: 15px;
@@ -40,7 +42,7 @@ const BiographyImage = styled.div`
 const BiographyText = styled.div`
   height: 80%;
   flex: 1;
-  background-color: #FFF;
+  background-color: ${white};
   padding: 30px;
   box-sizing: border-box;
   box-shadow: 16px 45px 74px -10px rgba(0,0,0,0.75);
@@ -50,7 +52,7 @@ const BiographyText = styled.div`
 `
 
 const BiographyTitle = styled.h2`
-  color: #000;
+  color: ${dark};
   font-weight: 900;
   font-size: 33px;
   font-family: 'Roboto', sans-serif;

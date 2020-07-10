@@ -2,19 +2,23 @@ import React, { RefObject } from 'react'
 import styled from 'styled-components'
 import { UseTranslationResponse, useTranslation } from 'react-i18next'
 
+import { IThemeProviderProps } from '../interfaces'
+import { white, dark } from '../constants/globals'
+
 const SpeechBubble = styled.div`
   position: fixed;
   bottom: 60px;
   right: 0;
-  background: #FFF;
+  background: ${({ theme }: IThemeProviderProps): string => theme?.colors?.speechBubble ?? white};
   width: 350px;
   height: 200px;
   clip-path: polygon(12% 12%, 70% 10%, 68% 45%, 44% 44%, 48% 61%, 30% 44%, 7% 45%);
   white-space: pre-line;
+  z-index: 3;
 `
 
 const SpeechBubbleText = styled.p`
-  color: #000;
+  color: ${({ theme }: IThemeProviderProps): string => theme?.colors?.speechBubbleText ?? dark};
   display: inline-block;
   font-size: 19px;
   margin-left: 45px;
