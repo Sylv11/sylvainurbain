@@ -14,6 +14,8 @@ export interface IShapeProps {
   alt?: string;
 }
 
+export type ShapeType = 'bubble' | 'blob' | 'crater'
+
 export interface IBlobProps {
   [mode: string]: IShapeProps[];
 }
@@ -23,7 +25,7 @@ type Mode = 'light' | 'dark'
 export interface IThemeProps {
   mode: Mode;
   colors: {
-      background: string;
+      backgroundColor: string;
       homeTitle: string;
       speechBubble: string;
       speechBubbleText: string;

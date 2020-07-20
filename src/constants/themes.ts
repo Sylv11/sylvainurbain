@@ -1,34 +1,34 @@
 import { IThemeProps } from '../interfaces'
-import { white, purple } from './globals'
+import { WHITE, PURPLE } from './globals'
 
-export const darkTheme: IThemeProps = {
+export const DARK_THEME: IThemeProps = {
   mode: 'dark',
   colors: {
-    background: 'radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(65,25,99,1) 0%, rgba(40,14,62,1) 42%)',
-    homeTitle: white,
-    speechBubble: white,
-    speechBubbleText: purple,
-    languageChooser: white,
-    anchor: white,
+    backgroundColor: PURPLE,
+    homeTitle: WHITE,
+    speechBubble: WHITE,
+    speechBubbleText: PURPLE,
+    languageChooser: WHITE,
+    anchor: WHITE,
     shapes: 'rgba(255, 255, 255, 0.05)',
   },
   other: {
     blobOpacity: '0.03',
   }
-}
+} as const
 
-export const lightTheme: IThemeProps = {
+export const LIGHT_THEME: IThemeProps = {
   mode: 'light',
   colors: {
-    background: white,
-    homeTitle: purple,
+    backgroundColor: WHITE,
+    homeTitle: PURPLE,
     speechBubble: 'rgba(70, 24, 110, 0.8)',
-    speechBubbleText: white,
-    languageChooser: purple,
-    anchor: purple,
+    speechBubbleText: WHITE,
+    languageChooser: PURPLE,
+    anchor: PURPLE,
     shapes: 'rgba(142, 24, 239, 0.15)',
   }, 
   other: {
     blobOpacity: '0.2',
   }
-}
+} as const

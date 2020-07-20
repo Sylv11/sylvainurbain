@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import { UseTranslationResponse, useTranslation } from 'react-i18next'
 
 import { IThemeProviderProps } from '../interfaces'
-import { white, dark } from '../constants/globals'
+import { WHITE, DARK } from '../constants/globals'
 
 const SpeechBubble = styled.div`
   position: fixed;
   bottom: 60px;
   right: 0;
-  background: ${({ theme }: IThemeProviderProps): string => theme?.colors?.speechBubble ?? white};
+  background: ${({ theme }: IThemeProviderProps): string => theme?.colors?.speechBubble ?? WHITE};
   width: 350px;
   height: 200px;
   clip-path: polygon(12% 12%, 70% 10%, 68% 45%, 44% 44%, 48% 61%, 30% 44%, 7% 45%);
@@ -18,7 +18,7 @@ const SpeechBubble = styled.div`
 `
 
 const SpeechBubbleText = styled.p`
-  color: ${({ theme }: IThemeProviderProps): string => theme?.colors?.speechBubbleText ?? dark};
+  color: ${({ theme }: IThemeProviderProps): string => theme?.colors?.speechBubbleText ?? DARK};
   display: inline-block;
   font-size: 19px;
   margin-left: 45px;

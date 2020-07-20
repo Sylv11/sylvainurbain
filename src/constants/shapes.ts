@@ -4,7 +4,7 @@ import lightBlob from '../assets/img/light_blob.svg'
 import lightBlob2 from '../assets/img/light_blob2.svg'
 import { IShapeProps } from '../interfaces'
 
-export const bubblesFirstSubcontainer: IShapeProps[] = [{
+export const BUBBLES_1: IShapeProps[] = [{
   size: 190,
   position: {
       top: '200',
@@ -66,7 +66,7 @@ export const bubblesFirstSubcontainer: IShapeProps[] = [{
   },
 }]
 
-export const bubblesSecondSubcontainer: IShapeProps[] = [{
+export const BUBBLES_2: IShapeProps[] = [{
   size: 200,
   position: {
       bottom: '10',
@@ -76,7 +76,7 @@ export const bubblesSecondSubcontainer: IShapeProps[] = [{
   animated: true,
 }]
 
-export const darkBlobsProps: IShapeProps[] = [{
+export const DARK_BLOBS: IShapeProps[] = [{
   size: 250,
   position: {
       top: '210',
@@ -98,7 +98,7 @@ export const darkBlobsProps: IShapeProps[] = [{
   alt: 'darkBlob2',
 }]
 
-export const lightBlobsProps: IShapeProps[] = [{
+export const LIGHT_BLOBS: IShapeProps[] = [{
   size: 250,
   position: {
       top: '210',
@@ -120,7 +120,7 @@ export const lightBlobsProps: IShapeProps[] = [{
   alt: 'lightBlob2',
 }]
 
-export const craters: IShapeProps[] = [{
+export const CRATERS: IShapeProps[] = [{
   size: 5,
   position: {
     top: '25',

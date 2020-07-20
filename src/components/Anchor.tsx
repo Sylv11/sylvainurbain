@@ -4,7 +4,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll'
 import styled, {keyframes} from 'styled-components'
 
 import { IThemeProviderProps } from '../interfaces'
-import { dark } from '../constants/globals'
+import { DARK } from '../constants/globals'
 
 const AnchorLinkContainer = styled.div`
     position: absolute;
@@ -63,7 +63,7 @@ const Chevron = styled.div`
         top: 0;
         height: 100%;
         width: 50%;
-        background: ${({ theme }: IThemeProviderProps): string => theme?.colors?.anchor ?? dark};
+        background: ${({ theme }: IThemeProviderProps): string => theme?.colors?.anchor ?? DARK};
     }
 
     &:before {

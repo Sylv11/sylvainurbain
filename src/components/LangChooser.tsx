@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { IThemeProviderProps } from '../interfaces'
-import { dark } from '../constants/globals'
+import { DARK } from '../constants/globals'
 
 const LangContainer = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ const LangContainer = styled.div`
 
 const LangItem = styled.span`
   margin-right: 15px;
-  color: ${({ theme }: IThemeProviderProps): string => theme?.colors?.languageChooser ?? dark};
+  color: ${({ theme }: IThemeProviderProps): string => theme?.colors?.languageChooser ?? DARK};
   transition: 0.3s;
 
   &:hover, &:focus {
@@ -24,7 +24,7 @@ const LangItem = styled.span`
     display: block;
     width: 0;
     height: 1px;
-    background: ${({ theme }: IThemeProviderProps): string => theme?.colors?.languageChooser ?? dark};
+    background: ${({ theme }: IThemeProviderProps): string => theme?.colors?.languageChooser ?? DARK};
     transition: width .3s;
 }
 

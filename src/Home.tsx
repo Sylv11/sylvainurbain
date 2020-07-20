@@ -1,6 +1,7 @@
-import React, { useContext, useState, useRef, RefObject } from 'react'
+import React, { useState, useRef, RefObject } from 'react'
 import { useTranslation, UseTranslationResponse } from 'react-i18next'
-import styled, { keyframes, css, FlattenSimpleInterpolation, ThemeContext } from 'styled-components'
+import styled, { keyframes, css, FlattenSimpleInterpolation } from 'styled-components'
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux'
 
 import defaultAvatar from './assets/img/avatar.svg'
 import avatarSmile from './assets/img/avatar-smile.svg'
@@ -9,14 +10,16 @@ import { LangChooser } from './components/LangChooser'
 import { Anchor } from './components/Anchor'
 import { SpeakingAvatar } from './components/SpeakingAvatar'
 import { Biography } from './components/Biography'
-import { IShapeProps, IThemeProviderProps, IOwnShapeProps, IThemeProps } from './interfaces'
+import { IShapeProps, IThemeProviderProps, IOwnShapeProps, IThemeProps, ShapeType } from './interfaces'
 import { 
-    bubblesFirstSubcontainer, 
-    bubblesSecondSubcontainer, 
-    craters,
-    lightBlobsProps
+    BUBBLES_1, 
+    BUBBLES_2, 
+    CRATERS,
+    LIGHT_BLOBS
 } from './constants/shapes'
-import { languages, dark, blobProps } from './constants/globals'
+import { LANGUAGES, DARK, BLOB_PROPS, BLOB, BUBBLE, CRATER } from './constants/globals'
+import { setTheme } from './redux/slices'
+import { DARK_THEME, LIGHT_THEME } from './constants/themes'
 
 const sizeAndPosition = css`
     position: absolute;
@@ -29,7 +32,7 @@ const sizeAndPosition = css`
         width: ${size ? size : 10}px;
     `}
 `
-const shapesStyle = css`
+const shapesCommonStyle = css`
     animation: ${({ animated, speed }: IShapeProps): '' | FlattenSimpleInterpolation => animated ? css`${animateBubble} ${speed}s ease-in-out infinite` : ''};
     ${sizeAndPosition}
 `
@@ -45,7 +48,7 @@ const SubContainerTitle = styled.h1`
     font-weight: lighter;
     font-size: 60px;
     margin: 0;
-    color: ${({ theme }: IThemeProviderProps): string => theme?.colors?.homeTitle ?? dark};
+    color: ${({ theme }: IThemeProviderProps): string => theme?.colors?.homeTitle ?? DARK};
     user-select: none;
     font-family: 'evolve';
 `
@@ -62,25 +65,26 @@ const animateBubble = keyframes`
 `
 const LivingBubble = styled.div`
     border-radius: 50%;
-    background-color: ${({ theme }: IThemeProviderProps): string => theme?.colors?.shapes ?? dark};
+    background-color: ${({ theme }: IThemeProviderProps): string => theme?.colors?.shapes ?? DARK};
     opacity: 1;
     z-index: 1;
-    ${shapesStyle}
+    ${shapesCommonStyle}
 `
 const LivingBlob = styled.img`
     opacity: ${({ theme }: IThemeProviderProps): string => theme?.other?.blobOpacity ?? '0.1'};
     pointer-events: none;
     user-select: none;
-    ${shapesStyle}
+    ${shapesCommonStyle}
 `
 
 const ActionsContainer = styled.div`
-    position: absolute;
+    position: fixed;
     top: 15px;
     right: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2;
 `
 
 const sunrise = keyframes`
@@ -139,17 +143,17 @@ const glow = keyframes`
     0% {
         box-shadow: 
             inset 4px 0px #A2B5BF, 
-            0 0 2px 1px rgba(255, 255, 255, 0.4);
+            0 0 2px 1px rgba(117, 117, 117, 0.4);
     }
     50% {
         box-shadow: 
             inset 4px 0px #A2B5BF, 
-            0 0 2px 2px rgba(255, 255, 255, 0.4);
+            0 0 2px 2px rgba(117, 117, 117, 0.4);
     }
     100% {
         box-shadow: 
             inset 4px 0px #A2B5BF, 
-            0 0 2px 1px rgba(255, 255, 255, 0.4);
+            0 0 2px 1px rgba(117, 117, 117, 0.4);
     }
 `
 
@@ -161,7 +165,7 @@ const Moon = styled.div`
     border: 4px solid #A2B5BF;
     box-shadow: 
         inset 4px 0px #A2B5BF, 
-        0 0 2px 1px rgba(255, 255, 255, 0.4);
+        0 0 2px 1px rgba(117, 117, 117, 0.4);
     transform: rotate(220deg);
     position: relative;
     animation: ${glow} 2s infinite linear forwards;
@@ -183,17 +187,26 @@ const Crater = styled.div`
 
 const Home = (): JSX.Element => {
     const [avatar, setAvatar] = useState<string>(defaultAvatar)
-    const [isClicked, setIsClicked] = useState<boolean>(false)
     const { t, i18n }: UseTranslationResponse = useTranslation()
     const biographyPartRef: RefObject<HTMLDivElement> = useRef(null)
     const speechBubbleRef: RefObject<HTMLParagraphElement> = useRef(null)
     const speechBubbleText: string = useSpeechBubbleText('welcome', biographyPartRef)
-    const themeContext: IThemeProps = useContext(ThemeContext);
+    const dispatch = useDispatch()
+    const theme: IThemeProps = useSelector(({ theme }: RootStateOrAny) => theme)
 
-    const buildLivingBubbles = (shapesToBuild: IShapeProps[]): JSX.Element[] => shapesToBuild.map(({ size, position, speed, animated }: IShapeProps, index: number): JSX.Element => <LivingBubble size={size} position={position} speed={speed} animated={animated} key={index} />)
-    const buildLivingBlobs = (shapesToBuild: IShapeProps[]): JSX.Element[] => shapesToBuild.map(({ src, size, position, speed, alt, animated }: IShapeProps, index: number): JSX.Element => <LivingBlob src={src} size={size} position={position} speed={speed} alt={alt} animated={animated} key={index} />)
-    const buildCraters = (shapesToBuild: IShapeProps[]): JSX.Element[] => shapesToBuild.map(({ size, position }: IShapeProps, index: number): JSX.Element => <Crater size={size} position={position} key={index} />)
-    
+    const buildShapes = (shapesToBuild: IShapeProps[], type: ShapeType): JSX.Element[] => shapesToBuild.map((shapesToBuild: IShapeProps, index: number): JSX.Element => {
+        switch(type) {
+        case BUBBLE: 
+            return <LivingBubble {...shapesToBuild} key={index} />
+        case BLOB:
+            return <LivingBlob {...shapesToBuild} key={index} />
+        case CRATER:
+            return <Crater {...shapesToBuild} key={index} />
+        default:
+            return <LivingBubble {...shapesToBuild} key={index} />
+        }
+    })
+
     const setLanguage = async (language: string): Promise<void> => {
         localStorage.setItem('lang', language)
         await i18n.changeLanguage(language)
@@ -203,25 +216,27 @@ const Home = (): JSX.Element => {
 
     const handleMouseLeave = (): void => setAvatar(defaultAvatar)
 
-    const toggleClick = (): void => isClicked ? setIsClicked(false) : setIsClicked(true)
+    const toggleTheme = () => {
+        dispatch(setTheme(theme.mode === LIGHT_THEME.mode ? DARK_THEME : LIGHT_THEME))
+    }
 
-    const getBlobProps = (): IShapeProps[] => blobProps[themeContext?.mode] ?? lightBlobsProps
+    const getBlobProps = (): IShapeProps[] => BLOB_PROPS[theme?.mode] ?? LIGHT_BLOBS
 
     return (
         <>
             <SubContainer>
                 <ActionsContainer>
-                    <LangChooser languages={languages} setLanguage={setLanguage} />
+                    <LangChooser languages={LANGUAGES} setLanguage={setLanguage} />
                     {
-                        isClicked
+                        theme.mode === LIGHT_THEME.mode
                         ?
                         (
-                            <Moon onClick={toggleClick} >
-                                {buildCraters(craters)}
+                            <Moon onClick={toggleTheme} >
+                                {buildShapes(CRATERS, CRATER)}
                             </Moon>
                         )
                         :
-                        <Sun onClick={toggleClick} />
+                            <Sun onClick={toggleTheme} />
                     }
                 </ActionsContainer>
                 <SubContainerTitle>
@@ -235,11 +250,11 @@ const Home = (): JSX.Element => {
                     speechBubbleText={speechBubbleText}
                 />
                 <Anchor />
-                {buildLivingBubbles(bubblesFirstSubcontainer)}
+                {buildShapes(BUBBLES_1, BUBBLE)}
             </SubContainer>
             <SubContainer>
-                {buildLivingBlobs(getBlobProps())}
-                {buildLivingBubbles(bubblesSecondSubcontainer)}
+                {buildShapes(getBlobProps(), BLOB)}
+                {buildShapes(BUBBLES_2, BUBBLE)}
                 <Biography biographyPartRef={biographyPartRef} />
             </SubContainer>
         </>

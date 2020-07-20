@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { UseTranslationResponse, useTranslation } from 'react-i18next'
 
 import biographyImage from '../assets/img/biography.jpg'
-import { white, dark } from '../constants/globals'
+import { WHITE, DARK } from '../constants/globals'
 
 const BiographyContainer = styled.div`
   margin-top: 50px;
@@ -14,7 +14,7 @@ const BiographyContainer = styled.div`
   white-space: pre-line;
   height: 100%;
   width: 680px;
-  color: ${dark};
+  color: ${DARK};
   padding: 10px;
   z-index: 3;
 `
@@ -42,7 +42,7 @@ const BiographyImage = styled.div`
 const BiographyText = styled.div`
   height: 80%;
   flex: 1;
-  background-color: ${white};
+  background-color: ${WHITE};
   padding: 30px;
   box-sizing: border-box;
   box-shadow: 16px 45px 74px -10px rgba(0,0,0,0.75);
@@ -52,7 +52,7 @@ const BiographyText = styled.div`
 `
 
 const BiographyTitle = styled.h2`
-  color: ${dark};
+  color: ${DARK};
   font-weight: 900;
   font-size: 33px;
   font-family: 'Roboto', sans-serif;
