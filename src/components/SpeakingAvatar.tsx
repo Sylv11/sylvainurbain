@@ -33,6 +33,7 @@ const Avatar = styled.img`
   bottom: 0;
   right: 0;
   user-select: none;
+  z-index: 1;
 `
 
 interface IProps {
@@ -61,6 +62,5 @@ export const SpeakingAvatar = ({
           </SpeechBubbleText>
       </SpeechBubble>
     </>
- 
   )
 }

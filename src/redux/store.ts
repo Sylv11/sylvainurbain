@@ -2,7 +2,7 @@ import { configureStore, combineReducers, getDefaultMiddleware } from '@reduxjs/
 import { persistReducer, persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
-import { themeSlice } from './slices'
+import { themeSlice } from './slices/theme'
 
 const { reducer: themeReducer } = themeSlice
 

@@ -18,7 +18,7 @@ i18n
             en,
             fr,
         },
-        lng: localStorage.getItem('lang') || 'en',
+        lng: localStorage.getItem('lang') ?? 'en',
         fallbackLng: 'en',
         keySeparator: '.',
         interpolation: {

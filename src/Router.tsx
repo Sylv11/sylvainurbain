@@ -12,6 +12,7 @@ import evolveRegular from './assets/fonts/evolve_thin_evo.otf'
 import kiona from './assets/fonts/kiona.ttf'
 import { IThemeProviderProps, IThemeProps } from './interfaces'
 import { PURPLE } from './constants/globals'
+import { NotFound } from './components/NotFound'
 
 const GlobalStyle: GlobalStyleComponent<IThemeProviderProps, DefaultTheme> = createGlobalStyle`
     @font-face {
@@ -58,6 +59,7 @@ export const Router = (): JSX.Element => {
       <BrowserRouter>
         <Switch>
           <Route exact path='/' component={Home} />
+          <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
     </ThemeProvider>

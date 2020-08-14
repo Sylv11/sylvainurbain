@@ -24,17 +24,16 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 ## TODO
 Cypress tests
 Responsive
-Bug image avatar
 Remove useless img
 React Helmet
 404 page
-move sun and moon
-simplify css Home
 shadow biography
 transform scale 60 pour effet dark mode rond
 redux types
 custom hook theme
 browser lang detector
 loader component
+error catcher page
 bug title
 put language in redux
+reorganize folder tree

@@ -8,9 +8,9 @@ export const BLOB_PROPS: IBlobProps = {
   'dark': DARK_BLOBS,
 } as const
 
-export const BUBBLE: ShapeType = 'bubble'
-export const BLOB: ShapeType = 'blob'
-export const CRATER: ShapeType = 'crater'
+export const BUBBLE_TYPE: ShapeType = 'bubble'
+export const BLOB_TYPE: ShapeType = 'blob'
+export const CRATER_TYPE: ShapeType = 'crater'
 
 export const PURPLE: string = '#280E3E'
 export const WHITE: string = '#FFF'

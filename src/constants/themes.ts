@@ -10,7 +10,7 @@ export const DARK_THEME: IThemeProps = {
     speechBubbleText: PURPLE,
     languageChooser: WHITE,
     anchor: WHITE,
-    shapes: 'rgba(255, 255, 255, 0.05)',
+    shapes: 'rgba(255, 255, 255, 0.03)',
   },
   other: {
     blobOpacity: '0.03',
