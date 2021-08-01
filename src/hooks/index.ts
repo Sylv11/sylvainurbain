@@ -1,9 +1,9 @@
-import { useEffect, useState, RefObject } from 'react'
+import { useLayoutEffect, useState, RefObject } from 'react'
 
 export const useSpeechBubbleText = (defaultText: string, biographyPartRef: RefObject<HTMLDivElement>): string => {
   const [text, setText] = useState<string>(defaultText)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
       if (biographyPartRef) {
           window.addEventListener('scroll', (): void => {
               const biographyPosition: ClientRect | undefined = biographyPartRef?.current?.getBoundingClientRect()

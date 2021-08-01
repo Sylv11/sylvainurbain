@@ -37,3 +37,5 @@ error catcher page
 bug title
 put language in redux
 reorganize folder tree
+use vmin for shapes
+vh vw

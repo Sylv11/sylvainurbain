@@ -12,6 +12,7 @@ const SubContainerTitle = styled.h1`
     color: ${({ theme }: IThemeProviderProps): string => theme?.colors?.homeTitle ?? DARK};
     user-select: none;
     font-family: 'evolve';
+    z-index: 2;
 `
 
 export const MainTitle = (): JSX.Element => {

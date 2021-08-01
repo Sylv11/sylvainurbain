@@ -28,7 +28,7 @@ const BiographyImage = styled.div`
   height: calc(100% - 100px);
   padding-top: 15px;
   padding-bottom: 15px;
-  box-shadow: -13px 45px 71px -14px rgba(0,0,0,0.75);
+  box-shadow: -15px 40px 60px -30px rgba(0,0,0,0.75);
   z-index: 3;
   transition: all 0.6s ease-in-out;
   border-radius: 5px;
@@ -45,7 +45,7 @@ const BiographyText = styled.div`
   background-color: ${WHITE};
   padding: 30px;
   box-sizing: border-box;
-  box-shadow: 16px 45px 74px -10px rgba(0,0,0,0.75);
+  box-shadow: 15px 31px 35px -20px rgba(0,0,0,0.75);
   text-align: justify;
   overflow-y: scroll;
   border-radius: 0 5px 5px 0;

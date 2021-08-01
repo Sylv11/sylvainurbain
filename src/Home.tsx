@@ -1,4 +1,4 @@
-import React, { useState, useRef, RefObject } from 'react'
+import React, { useState, useRef, RefObject, useCallback } from 'react'
 import styled from 'styled-components'
 import { useSelector, RootStateOrAny } from 'react-redux'
 
@@ -39,7 +39,7 @@ const Home = (): JSX.Element => {
 
     const handleMouseLeave = (): void => setAvatar(defaultAvatar)
 
-    const getBlobProps = (): IShapeProps[] => BLOB_PROPS[theme?.mode] ?? LIGHT_BLOBS
+    const getBlobProps = useCallback((): IShapeProps[] => BLOB_PROPS[theme?.mode] ?? LIGHT_BLOBS, [theme])
 
     return (
         <>

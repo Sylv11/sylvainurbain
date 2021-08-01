@@ -18,3 +18,4 @@ export const buildShapes = (shapesToBuild: IShapeProps[], type: ShapeType): JSX.
       return <LivingBubble {...shapesToBuild} key={index} />
   }
 })
+

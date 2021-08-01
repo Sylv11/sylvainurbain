@@ -1,4 +1,9 @@
+import React from 'react'
 import styled, { keyframes } from 'styled-components'
+
+import { buildShapes } from '../utils'
+import { CRATERS } from '../constants/shapes'
+import { CRATER_TYPE } from '../constants/globals'
 
 const glow = keyframes`
     0% {
@@ -18,7 +23,7 @@ const glow = keyframes`
     }
 `
 
-export const Moon = styled.div`
+const MoonContainer = styled.div`
     background-color: #CAD9DD;
     width: 42px;
     height: 42px;
@@ -32,7 +37,23 @@ export const Moon = styled.div`
     animation: ${glow} 2s infinite linear forwards;
     z-index: 1;
 
-    &:hover, &:focus {
-        cursor: pointer;
-    }
+    ${({ onClick }: IProps): string => `
+        ${onClick ? `
+        &:hover, &:focus {
+            cursor: pointer;
+        }
+        ` : ''}
+    `}
 `
+
+interface IProps {
+    onClick?: () => void;
+}
+
+export const Moon = ({ onClick }: IProps): JSX.Element => {
+    return (
+        <MoonContainer onClick={onClick}>
+            {buildShapes(CRATERS, CRATER_TYPE)}
+        </MoonContainer>
+    )
+}

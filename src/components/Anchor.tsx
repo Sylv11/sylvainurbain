@@ -1,6 +1,4 @@
 import React from 'react'
-// @ts-ignore
-import AnchorLink from 'react-anchor-link-smooth-scroll'
 import styled, {keyframes} from 'styled-components'
 
 import { IThemeProviderProps } from '../interfaces'
@@ -16,7 +14,7 @@ const AnchorLinkContainer = styled.div`
     left: 0;
 `
 
-const ChevronContainer = styled(AnchorLink)`
+const ChevronContainer = styled.a`
     height: 89px;
     width: 37px;
     display: flex;
@@ -43,7 +41,7 @@ const moveChevron = keyframes`
 const Chevron = styled.div`
     position: absolute;
     width: calc(0.6rem * 3.5);
-    height: calc(0.6rem * 0.75);
+    height: calc(0.1rem * 0.75);
     opacity: 0;
     transform: scale(0.3);
     animation: ${moveChevron} 3s ease-out infinite;

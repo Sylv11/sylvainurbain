@@ -25,14 +25,16 @@ const GlobalStyle: GlobalStyleComponent<IThemeProviderProps, DefaultTheme> = cre
         src: url(${kiona}) format('truetype');
     }
 
-    body {
+    html, body {
         font-family: 'Muli', sans-serif;
         font-weight: lighter;
         height: 100vh;
         background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255, 0.1) 0%, rgba(255,255,255, 0) 35%) no-repeat;
         background-color: ${({ theme }: IThemeProviderProps): string => theme?.colors?.backgroundColor ?? PURPLE};
         scroll-behavior: smooth;
-        transition: 0.3s;
+        transition: 0.5s;
+        margin: 0;
+        padding: 0;
     }
 
     ::-webkit-scrollbar-track {

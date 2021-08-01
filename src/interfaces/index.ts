@@ -32,9 +32,6 @@ export interface IThemeProps {
       languageChooser: string;
       anchor: string;
       shapes: string;
-  },
-  other: {
-    blobOpacity: string;
   }
 }
 
